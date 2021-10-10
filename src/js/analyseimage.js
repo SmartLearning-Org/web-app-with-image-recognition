@@ -1,11 +1,8 @@
 const uri = 'https://victorious-rock-00503b903.azurestaticapps.net/api/analyseimage';
 let todos = [];
 
-function analyzeImage() {
-    spinner.removeAttribute('hidden');
-
+function analyzeImage() {   
     var imageUrl = document.getElementById('imageUrlInput').value;
-
     var isValidUrl = validateUrl(imageUrl);
 
     if (isValidUrl == false) {
@@ -30,7 +27,6 @@ function analyzeImage() {
             return response.json()
         })
         .then(data => {
-            spinner.setAttribute('hidden', '');
             var imageDiv = document.getElementById('previewImageContainer');
             imageDiv.innerHTML = "";
 
