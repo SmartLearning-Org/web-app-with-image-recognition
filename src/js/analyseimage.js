@@ -1,4 +1,4 @@
-const uri = 'https://victorious-rock-00503b903.azurestaticapps.net/api/analyseimage';
+const uri = 'https://victorious-rock-00503b903.azurestaticapps.net/api/analyzeimage';
 let todos = [];
 
 function analyzeImage() {   
