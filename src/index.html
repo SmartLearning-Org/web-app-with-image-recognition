@@ -6,12 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <title>Vanilla JavaScript App!</title>
+  <script src="js/analyseimage.js" async></script>
 </head>
 
 <body>
   <main>
-    <h1>Vanilla JavaScript App</h1>
-    <p>Loading content from the API: <b id="name">...</b></p>
+    <form action="javascript:void(0);" method="POST" onsubmit="analyzeImage()">
+      <div class="form-group">
+          <label for="imageUrlInput">Image URL</label>
+          <input type="text" class="form-control" id="imageUrlInput" aria-describedby="emailHelp"
+              placeholder="Tilføj url til et billede her">
+          <small id="emailHelp" class="form-text text-muted">Sti til billede skal ende på .jpg eller
+              .png</small>
+      </div>
+      <input type="submit" value="Analysér" class="btn btn-primary">
+  </form>
+  <div id="imageDescription"></div>
     </main>
 
     <script>

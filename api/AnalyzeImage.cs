@@ -8,6 +8,8 @@ using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Company.Function
 {
@@ -29,9 +31,14 @@ namespace Company.Function
             string subscriptionKey = config["ComputerVisionKey"] ;
             string endpoint = "https://web-app-with-image-recognition.cognitiveservices.azure.com/";
 
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            dynamic data = JsonConvert.DeserializeObject(requestBody);
+
+            string imageUrl = data?.imageUrl;
+
  
             ComputerVisionClient client = Authenticate(endpoint, subscriptionKey);
-            var analysisResult = await AnalyzeImageUrl(client, "https://cdn.pixabay.com/photo/2020/04/28/18/18/bee-5105751_960_720.jpg");
+            var analysisResult = await AnalyzeImageUrl(client, imageUrl);
 
 
             
