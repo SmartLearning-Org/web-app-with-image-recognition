@@ -1,5 +1,4 @@
 const uri = 'https://victorious-rock-00503b903.azurestaticapps.net/api/analyzeimage';
-let todos = [];
 
 function analyzeImage() {   
     var imageUrl = document.getElementById('imageUrlInput').value;
