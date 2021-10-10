@@ -23,13 +23,6 @@
   </form>
   <div id="imageDescription"></div>
     </main>
-
-    <script>
-    (async function() {
-        const { text } = await( await fetch(`/api/AnalyzeImage`)).json();
-        document.querySelector('#name').textContent = text;
-    }())
-    </script>
 </body>
 
 </html>
